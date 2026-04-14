@@ -33,7 +33,12 @@ public class ModeloHashMap implements ModeloAbs
 
 	@Override
 	public boolean modificarProducto(Producto nuevo) {
-		return ( mapa.containsKey(nuevo.codigo));
+		if (nuevo == null) return false; 
+		if (mapa.containsKey(nuevo.getCodigo())) {
+	            mapa.put(nuevo.getCodigo(), nuevo);
+	            return true;
+	        }
+	        return false;
 	}
 
 	@Override
